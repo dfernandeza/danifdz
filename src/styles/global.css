@@ -1,0 +1,205 @@
+/** 
+Using BEM methodology for writing my CSS for more information about BEM, see the docs: 
+http://getbem.com/naming/ 
+
+i.e.
+
+.block {}
+.block--mod {}
+.block__elem {}
+.block__elem--mod { }
+*/
+
+/* html {
+  background-color: #2f3436;
+} */
+
+:root {
+  --color-primary: #54b3a7; /* #006f61 better contrast */
+}
+
+.layout {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+@media only screen and (max-width: 600px) {
+  .layout {
+    position: relative;
+  }
+}
+
+.page-header {
+  margin-bottom: 3rem;
+}
+
+.page-header__container {
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 1.45rem 0;
+}
+
+.page-header__link {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.landing {
+  padding: 60px 0;
+}
+
+.header {
+  background-color: #e8e1db;
+  background-size: contain;
+  background-position: bottom right;
+  padding: 60px 40px;
+  overflow: hidden;
+}
+
+.header::before {
+  filter: grayscale(100%);
+}
+
+.header__container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.header__title {
+  font-size: 6rem;
+  color: var(--color-primary);
+}
+
+@media only screen and (max-width: 600px) {
+  .header__title {
+    font-size: 3rem;
+  }
+}
+
+.header__title--name {
+  --move: 30px;
+  margin: 0;
+  animation: 0.8s ease-out 0.8s forwards move-title;
+}
+
+.header__title--lastname {
+  --move: 60px;
+  animation: 0.8s ease-out 1s forwards move-title;
+}
+
+.header__title--lastname::after {
+  content: " ";
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header__title--name,
+  .header__title--lastname {
+    animation: none;
+  }
+}
+
+@keyframes move-title {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(var(--move));
+  }
+}
+
+.landing__abstract {
+}
+
+.skill {
+  display: inline-block;
+  padding: 6px;
+  /* border: 2px solid; */
+  border-radius: 4px;
+  margin: 0 5px;
+  font-size: 0.8rem;
+}
+
+.skill--js {
+  /* border-color: #f0db4f; */
+}
+
+.skill--html {
+  /* border-color: #f16529; */
+}
+
+.skill--css {
+  /* border-color: #3c99dc; */
+}
+
+.featured-list {
+  margin-top: 45px;
+}
+
+.featured-list__item-link {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.featured-list__item-link:hover > .featured-list__item-link__arrow {
+  color: var(--color-primary);
+  transform: translateX(10px);
+}
+
+.featured-list__item-link__arrow {
+  display: inline-block;
+  margin-left: 10px;
+  transition: ease-out .3s color, ease-out .3s transform;
+}
+
+.footer {
+  position: absolute;
+  bottom: 20px;
+  right: 40px;
+}
+
+.footer__link {
+  color: var(--text-color);
+  margin: 0 10px;
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .footer__link {
+    font-size: 0.8rem;
+  }
+}
+.footer__link:last-of-type {
+  margin: 0;
+}
+
+.footer__text {
+  text-align: right;
+  margin-left: 10px;
+  font-size: 0.9rem;
+}
+
+.footer__text-link {
+  color: var(--text-color);
+}
+
+.blog-post {
+  animation: ease-out 0.5s forwards fade-in;
+}
+
+@keyframes fade-in {
+  from {
+    transform: translateY(20px);
+    opacity: 0.5;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blog-post {
+    animation: none;
+  }
+}
