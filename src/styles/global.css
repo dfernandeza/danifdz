@@ -24,12 +24,6 @@ i.e.
   padding: 0 40px;
 }
 
-@media only screen and (max-width: 600px) {
-  .layout {
-    position: relative;
-  }
-}
-
 .page-header {
   margin-bottom: 3rem;
 }
@@ -37,7 +31,7 @@ i.e.
 .page-header__container {
   margin: 0 auto;
   max-width: 960px;
-  padding: 1.45rem 0;
+  padding: 1.45rem 40px;
 }
 
 .page-header__link {
@@ -73,7 +67,7 @@ i.e.
 
 @media only screen and (max-width: 600px) {
   .header__title {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 }
 
@@ -149,13 +143,12 @@ i.e.
 .featured-list__item-link__arrow {
   display: inline-block;
   margin-left: 10px;
-  transition: ease-out .3s color, ease-out .3s transform;
+  transition: ease-out 0.3s color, ease-out 0.3s transform;
 }
 
 .footer {
-  position: absolute;
-  bottom: 20px;
-  right: 40px;
+  text-align: right;
+  margin: 10px 0 20px;
 }
 
 .footer__link {
@@ -169,6 +162,7 @@ i.e.
     font-size: 0.8rem;
   }
 }
+
 .footer__link:last-of-type {
   margin: 0;
 }
@@ -177,6 +171,13 @@ i.e.
   text-align: right;
   margin-left: 10px;
   font-size: 0.9rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .footer__text {
+    display: block;
+    margin-top: 10px;
+  }
 }
 
 .footer__text-link {
