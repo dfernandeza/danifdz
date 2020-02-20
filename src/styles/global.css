@@ -54,7 +54,6 @@ i.e.
   background-color: #e8e1db;
   background-size: contain;
   background-position: bottom right;
-  overflow: hidden;
 }
 
 .header::before {
@@ -89,6 +88,11 @@ i.e.
   animation: 0.8s ease-out 1s forwards move-title;
 }
 
+.header__title--name,
+.header__title--lastname {
+  display: inline-block;
+}
+
 .header__title--lastname::after {
   content: " ";
 }
@@ -109,7 +113,8 @@ i.e.
   }
 }
 
-.landing__abstract {}
+.landing__abstract {
+}
 
 .skill {
   display: inline-block;
@@ -192,6 +197,7 @@ i.e.
 
 .blog-post {
   animation: ease-out 0.5s forwards fade-in;
+  margin-bottom: 60px;
 }
 
 @keyframes fade-in {
