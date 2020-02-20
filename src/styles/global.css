@@ -51,7 +51,7 @@ i.e.
 }
 
 .header {
-  background-color: #e8e1db;
+  background-color: #e2e2e2;
   background-size: contain;
   background-position: bottom right;
 }
@@ -69,6 +69,7 @@ i.e.
 .header__title {
   font-size: 6rem;
   color: var(--color-primary);
+  display: inline-block;
 }
 
 @media only screen and (max-width: 600px) {
@@ -86,11 +87,6 @@ i.e.
 .header__title--lastname {
   --move: 60px;
   animation: 0.8s ease-out 1s forwards move-title;
-}
-
-.header__title--name,
-.header__title--lastname {
-  display: inline-block;
 }
 
 .header__title--lastname::after {

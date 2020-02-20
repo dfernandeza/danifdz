@@ -14,8 +14,8 @@ const IndexPage = ({ data }) => {
     <>
       <BgImage>
         <div className="header__container">
-          <h1 className="header__title">I'm</h1>
-          <h1 className="header__title header__title--name">Daniel</h1>
+          <h1 className="header__title">I'm</h1> <br />
+          <h1 className="header__title header__title--name">Daniel</h1> <br />
           <h1 className="header__title header__title--lastname">Fernández</h1>
         </div>
       </BgImage>
