@@ -1,10 +1,16 @@
 module.exports = {
   siteMetadata: {
-    title: `Daniel Fernández`,
-    description: `Personal website`,
+    title: `danifdz.dev`,
+    description: `Personal blog.`,
     author: `@dfernandeza`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: `UA-37854450-6`,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,

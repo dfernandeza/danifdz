@@ -21,7 +21,7 @@ const IndexPage = ({ data }) => {
       </BgImage>
 
       <Layout>
-        <SEO title="Home" />
+        <SEO title="Daniel Fernández - Frontend Developer" />
 
         <section className="landing">
           <div className="landing__abstract">
