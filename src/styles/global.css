@@ -16,12 +16,19 @@ i.e.
 
 :root {
   --color-primary: #54b3a7; /* #006f61 better contrast */
+  --left-right-padding: 40px;
+}
+
+@media only screen and (max-width: 600px) {
+  :root {
+    --left-right-padding: 20px;
+  }
 }
 
 .layout {
   max-width: 960px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 var(--left-right-padding);
 }
 
 .page-header {
@@ -31,7 +38,7 @@ i.e.
 .page-header__container {
   margin: 0 auto;
   max-width: 960px;
-  padding: 1.45rem 40px;
+  padding: 1.45rem var(--left-right-padding);
 }
 
 .page-header__link {
@@ -47,7 +54,6 @@ i.e.
   background-color: #e8e1db;
   background-size: contain;
   background-position: bottom right;
-  padding: 60px 40px;
   overflow: hidden;
 }
 
@@ -57,6 +63,7 @@ i.e.
 
 .header__container {
   max-width: 960px;
+  padding: 60px var(--left-right-padding);
   margin: 0 auto;
 }
 
@@ -102,8 +109,7 @@ i.e.
   }
 }
 
-.landing__abstract {
-}
+.landing__abstract {}
 
 .skill {
   display: inline-block;
