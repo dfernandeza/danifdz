@@ -8,8 +8,11 @@ const BgImage = ({ children }) => {
     query {
       placeholderImage: file(relativePath: { eq: "danifdz.png" }) {
         childImageSharp {
-          fluid(maxWidth: 1000) {
-            ...GatsbyImageSharpFluid
+          fluid(
+            maxWidth: 1000
+            duotone: { highlight: "#ffffff", shadow: "#000000" }
+          ) {
+            ...GatsbyImageSharpFluid_withWebp_tracedSVG
           }
         }
       }
@@ -21,7 +24,12 @@ const BgImage = ({ children }) => {
       Tag="header"
       className="header"
       fluid={data.placeholderImage.childImageSharp.fluid}
-      backgroundColor={`#e8e1db`}
+      backgroundColor={`#e2e2e2`}
+      fadeIn={`soft`}
+      style={{
+        height: `auto`,
+        width: `100vw`
+      }}
     >
       {children}
     </BackgroundImage>

@@ -56,10 +56,6 @@ i.e.
   background-position: bottom right;
 }
 
-.header::before {
-  filter: grayscale(100%);
-}
-
 .header__container {
   max-width: 960px;
   padding: 60px var(--left-right-padding);
@@ -70,6 +66,7 @@ i.e.
   font-size: 6rem;
   color: var(--color-primary);
   display: inline-block;
+  will-change: transform;
 }
 
 @media only screen and (max-width: 600px) {
