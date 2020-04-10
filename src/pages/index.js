@@ -39,6 +39,7 @@ const IndexPage = ({ data }) => {
               large-sized companies.
             </p>
             {/* <p>
+              Technologies I've been working with recently:
               <span className="skill skill--html">#HTML</span>
               <span className="skill skill--css">#CSS</span>
               <span className="skill skill--js">#JavaScript</span>
@@ -46,8 +47,9 @@ const IndexPage = ({ data }) => {
           </div>
 
           <div className="featured-list">
-            {edges.map(({ node }) => (
-              <article key={node.id} className="featured-list__item">
+          { !!edges.length && <h2>Blog posts</h2> }
+            {edges.map(({ node }, index) => (
+              <article key={`${node.id}-${index}`} className="featured-list__item">
                 <header>
                   <h3>
                     <Link

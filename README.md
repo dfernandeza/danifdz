@@ -23,3 +23,7 @@ My personal site/blog. Built with [Gatsby](https://www.gatsbyjs.org/) :heart:
     The site is now running at `http://localhost:8000`!
 
     _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+
+### TODO
+
+- https://www.gatsbyjs.org/packages/gatsby-remark-prismjs/
