@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { graphql, Link } from "gatsby";
 
@@ -10,14 +10,17 @@ const IndexPage = ({ data }) => {
   const {
     allMarkdownRemark: { edges = [] },
   } = data;
+  const [supportsClipTxt, setSupportsClipTxt] = useState(false);
+
+  useEffect(() => {
+    setSupportsClipTxt(window.CSS.supports("-webkit-background-clip", "text"));
+  }, []);
 
   return (
     <>
       <Helmet
         bodyAttributes={{
-          class: window.CSS.supports("-webkit-background-clip", "text")
-            ? "bg-clip-text"
-            : "",
+          class: supportsClipTxt ? "bg-clip-text" : "",
         }}
       />
 
