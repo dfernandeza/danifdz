@@ -20,7 +20,7 @@ const IndexPage = ({ data }) => {
     <>
       <Helmet
         bodyAttributes={{
-          class: supportsClipTxt ? "bg-clip-text" : "",
+          class: supportsClipTxt ? "bg-clip-text" : "bg-solid",
         }}
       />
 

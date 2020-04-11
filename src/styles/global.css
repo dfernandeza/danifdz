@@ -64,10 +64,16 @@ i.e.
 
 .header__title {
   font-size: 6rem;
-  /* fallback text color */
-  color: var(--color-primary);
+  color: transparent;
   display: inline-block;
   will-change: transform;
+
+  transition: color 0.5 ease-in;
+}
+
+.bg-solid .header__title {
+  /* fallback text color */
+  color: var(--color-primary);
 }
 
 .bg-clip-text .header__title {
