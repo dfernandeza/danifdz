@@ -15,7 +15,9 @@ const IndexPage = ({ data }) => {
     <>
       <Helmet
         bodyAttributes={{
-          class: CSS.supports("-webkit-background-clip", "text") ? "bg-clip-text" : "",
+          class: window.CSS.supports("-webkit-background-clip", "text")
+            ? "bg-clip-text"
+            : "",
         }}
       />
 
