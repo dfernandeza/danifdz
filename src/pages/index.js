@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { graphql, Link } from "gatsby";
 
 import Layout from "../components/layout";
@@ -12,6 +13,12 @@ const IndexPage = ({ data }) => {
 
   return (
     <>
+      <Helmet
+        bodyAttributes={{
+          class: CSS.supports("-webkit-background-clip", "text") ? "bg-clip-text" : "",
+        }}
+      />
+
       <BgImage>
         <div className="header__container">
           <h1 className="header__title">I'm</h1> <br />
@@ -47,9 +54,12 @@ const IndexPage = ({ data }) => {
           </div>
 
           <div className="featured-list">
-          { !!edges.length && <h2>Blog posts</h2> }
+            {!!edges.length && <h2>Blog posts</h2>}
             {edges.map(({ node }, index) => (
-              <article key={`${node.id}-${index}`} className="featured-list__item">
+              <article
+                key={`${node.id}-${index}`}
+                className="featured-list__item"
+              >
                 <header>
                   <h3>
                     <Link
