@@ -1,3 +1,7 @@
 {
-  "cSpell.words": ["frontmatter"]
+  "cSpell.words": [
+    "frontmatter"
+  ],
+  "editor.formatOnSave": true,
+  "eslint.format.enable": true
 }

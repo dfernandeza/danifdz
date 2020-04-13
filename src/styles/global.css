@@ -64,9 +64,23 @@ i.e.
 
 .header__title {
   font-size: 6rem;
-  color: var(--color-primary);
+  color: transparent;
   display: inline-block;
   will-change: transform;
+
+  transition: color 0.5 ease-in;
+}
+
+.bg-solid .header__title {
+  /* fallback text color */
+  color: var(--color-primary);
+}
+
+.bg-clip-text .header__title {
+  /* if we can clip text, do it */
+  background: linear-gradient(135deg, #4fb3ad, #ff8aee);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
 }
 
 @media only screen and (max-width: 600px) {
