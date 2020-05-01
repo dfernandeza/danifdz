@@ -15,8 +15,26 @@ i.e.
 } */
 
 :root {
-  --color-primary: #54b3a7; /* #006f61 better contrast */
+  --color-primary: #4fb3ad;
+  --color-gradient-a: #4fb3ad;
+  --color-gradient-b: #ff8aee;
   --left-right-padding: 40px;
+}
+
+.bg--solid .text--primary {
+  /* fallback text color */
+  color: var(--color-primary);
+}
+
+.bg--clip-text .text--primary {
+  /* if we can clip text, do it */
+  background: linear-gradient(
+    135deg,
+    var(--color-gradient-a),
+    var(--color-gradient-b)
+  );
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
 }
 
 @media only screen and (max-width: 600px) {
@@ -69,18 +87,6 @@ i.e.
   will-change: transform;
 
   transition: color 0.5 ease-in;
-}
-
-.bg-solid .header__title {
-  /* fallback text color */
-  color: var(--color-primary);
-}
-
-.bg-clip-text .header__title {
-  /* if we can clip text, do it */
-  background: linear-gradient(135deg, #4fb3ad, #ff8aee);
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
 }
 
 @media only screen and (max-width: 600px) {
@@ -153,8 +159,18 @@ i.e.
   text-decoration: none;
 }
 
+.featured-list__item-link:hover > .featured-list__item-link__text {
+  background: linear-gradient(
+    135deg,
+    var(--color-gradient-a),
+    var(--color-gradient-b)
+  );
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
 .featured-list__item-link:hover > .featured-list__item-link__arrow {
-  color: var(--color-primary);
+  color: var(--color-gradient-b);
   transform: translateX(10px);
 }
 
@@ -222,4 +238,44 @@ i.e.
   .blog-post {
     animation: none;
   }
+}
+
+/* gatsby-remark-prismjs */
+
+/**
+ * Add back the container background-color, border-radius, padding, margin
+ * and overflow that we removed from <pre>.
+ */
+.gatsby-highlight {
+  background-color: #2d2d2d;
+  border-radius: 0.3em;
+  margin: 0.5em 0;
+  padding: 1em;
+  overflow: auto;
+}
+
+/**
+ * Remove the default PrismJS theme background-color, border-radius, margin,
+ * padding and overflow.
+ * 1. Make the element just wide enough to fit its content.
+ * 2. Always fill the visible space in .gatsby-highlight.
+ * 3. Adjust the position of the line numbers
+ */
+.gatsby-highlight pre[class*="language-"] {
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  overflow: initial;
+  float: left; /* 1 */
+  min-width: 100%; /* 2 */
+}
+
+.gatsby-highlight-code-line {
+  background-color: hsl(0, 0%, 28%);
+  display: block;
+  margin-right: -1.3125rem;
+  margin-left: -1.3125rem;
+  padding-right: 1em;
+  padding-left: 1.25em;
+  border-left: 0.25em solid var(--color-primary);
 }

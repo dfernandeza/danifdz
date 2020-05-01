@@ -1,5 +1,4 @@
-import React, { useState, useLayoutEffect } from "react";
-import { Helmet } from "react-helmet";
+import React from "react";
 import { graphql, Link } from "gatsby";
 
 import Layout from "../components/layout";
@@ -10,27 +9,19 @@ const IndexPage = ({ data }) => {
   const {
     allMarkdownRemark: { edges = [] },
   } = data;
-  const [supportsClipTxt, setSupportsClipTxt] = useState(undefined);
-
-  useLayoutEffect(() => {
-    setSupportsClipTxt(window.CSS.supports("-webkit-background-clip", "text"));
-  }, []);
 
   return (
     <>
-      {supportsClipTxt && (
-        <Helmet
-          bodyAttributes={{
-            class: supportsClipTxt ? "bg-clip-text" : "bg-solid",
-          }}
-        />
-      )}
-
       <BgImage>
         <div className="header__container">
-          <h1 className="header__title">I'm</h1> <br />
-          <h1 className="header__title header__title--name">Daniel</h1> <br />
-          <h1 className="header__title header__title--lastname">Fernández</h1>
+          <h1 className="header__title text--primary">I'm</h1> <br />
+          <h1 className="header__title header__title--name text--primary">
+            Daniel
+          </h1>{" "}
+          <br />
+          <h1 className="header__title header__title--lastname text--primary">
+            Fernández
+          </h1>
         </div>
       </BgImage>
 
@@ -73,7 +64,9 @@ const IndexPage = ({ data }) => {
                       className="featured-list__item-link"
                       to={node.frontmatter.path}
                     >
-                      {node?.frontmatter?.title}
+                      <span className="featured-list__item-link__text">
+                        {node?.frontmatter?.title}
+                      </span>
                       <span className="featured-list__item-link__arrow">
                         {" "}
                         →
