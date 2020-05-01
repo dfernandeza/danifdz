@@ -5,7 +5,7 @@ import React from "react";
 const Header = ({ siteTitle }) => (
   <header className="page-header">
     <div className="page-header__container">
-      <Link className="page-header__link" to="/">
+      <Link className="page-header__link text--primary" to="/">
         {siteTitle}
       </Link>
     </div>

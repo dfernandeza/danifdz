@@ -5,8 +5,9 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react";
+import React, { useState, useLayoutEffect } from "react";
 import PropTypes from "prop-types";
+import { Helmet } from "react-helmet";
 // import { useStaticQuery, graphql } from "gatsby";
 
 import "./layout.css";
@@ -22,8 +23,22 @@ const Layout = ({ children }) => {
   //   }
   // `);
 
+  const [supportsClipTxt, setSupportsClipTxt] = useState(undefined);
+
+  useLayoutEffect(() => {
+    setSupportsClipTxt(window.CSS.supports("-webkit-background-clip", "text"));
+  }, []);
+
   return (
     <>
+      {supportsClipTxt && (
+        <Helmet
+          bodyAttributes={{
+            class: supportsClipTxt ? "bg--clip-text" : "bg--solid",
+          }}
+        />
+      )}
+
       <div className="layout">
         <main>{children}</main>
         <footer className="footer">
