@@ -21,6 +21,15 @@ i.e.
   --left-right-padding: 40px;
 }
 
+a {
+  color: var(--color-primary);
+}
+
+a:hover,
+a:active {
+  text-decoration: none;
+}
+
 .bg--solid .text--primary {
   /* fallback text color */
   color: var(--color-primary);
@@ -238,6 +247,17 @@ i.e.
   .blog-post {
     animation: none;
   }
+}
+
+/* inline code */
+.blog-post :not(pre) > code[class*="language-"] {
+  padding: 0.15em 0.2em;
+  white-space: normal;
+}
+
+.blog-post :not(pre) > code[class*="language-"],
+.blog-post pre > code[class*="language-"] {
+  font-size: 1.1rem;
 }
 
 /* gatsby-remark-prismjs */

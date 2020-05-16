@@ -9,8 +9,7 @@
 
 body {
   margin: 0;
-  font-family: var(--font-family);
-  font-size: var(--font-size);
+  font: var(--font-size) / 1.75 var(--font-family);
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
@@ -475,14 +474,11 @@ iframe {
   margin-bottom: 1.45rem;
 }
 hr {
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0;
+  margin: calc(1.45rem - 1px) 0;
   padding-bottom: 0;
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: calc(1.45rem - 1px);
   background: hsla(0, 0%, 0%, 0.2);
   border: none;
   height: 1px;
@@ -603,13 +599,13 @@ pre code {
   background: none;
   line-height: 1.42;
 }
-code:before,
+/* code:before,
 code:after,
 tt:before,
 tt:after {
   letter-spacing: -0.2em;
   content: " ";
-}
+} */
 pre code:before,
 pre code:after,
 pre tt:before,
