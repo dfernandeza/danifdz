@@ -52,7 +52,7 @@ const IndexPage = ({ data }) => {
           </div>
 
           <div className="featured-list">
-            {!!edges.length && <h2>Blog posts</h2>}
+            {!!edges.length && <h2>Learning in public</h2>}
             {edges.map(({ node }, index) => (
               <article
                 key={`${node.id}-${index}`}
@@ -74,7 +74,7 @@ const IndexPage = ({ data }) => {
                     </Link>
                   </h3>
                   <small className="featured-list__item-meta">
-                    {node.frontmatter.date} • 5 min read
+                    {node.frontmatter.date} • {node.timeToRead} min read
                   </small>
                 </header>
                 <p className="featured-list__item-description">
@@ -97,6 +97,7 @@ export const query = graphql`
     ) {
       edges {
         node {
+          timeToRead
           frontmatter {
             title
             path

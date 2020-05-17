@@ -26,4 +26,4 @@ My personal site/blog. Built with [Gatsby](https://www.gatsbyjs.org/) :heart:
 
 ### TODO
 
-- https://www.gatsbyjs.org/packages/gatsby-remark-prismjs/
+- PWA
