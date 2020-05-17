@@ -47,7 +47,7 @@ For this we can use [dts-gen](https://github.com/microsoft/dts-gen) which is a t
 
 > -- "it simply examines the objects as they appear at runtime, rather than needing the source code that creates the object." from dts-gen README.
 
-dts-gen provides a commandline tool but in this case we will use the API directly to write our own CLI, this will allow us to take advantage of other tools to get better results, I'll get back to this later.
+dts-gen provides a commandline tool but in this case we will use the API directly as this will allow us to take advantage of other tools to get better results.
 
 We will also use [fs-extra](https://www.npmjs.com/package/fs-extra) which is an extended version of the native fs node module to interact with the file system.
 
@@ -71,16 +71,12 @@ let dts = dtsgen.generateModuleDeclarationFile(
   require("@pied-piper/compress")
 );
 
-dts = `
-declare module '@pied-piper/compress' {
-    ${dts}
-}
-`;
+dts = `declare module '@pied-piper/compress' { ${dts} }`;
 
 fse.outputFile(dir, dts).catch(console.error);
 ```
 
-That's it, running this script will generate a definition file in `/types/@pied-piper/compress/index.d.ts`. You will need to update your tsconfig file as follows so that TypeScript can use your new definition file.
+That's it, running this script will generate a definition file in `/types/@pied-piper/compress/index.d.ts`. You will need to update your tsconfig file as follows so that TypeScript is aware of your new definition file.
 
 ```json
 {
@@ -111,7 +107,7 @@ dts = prettier.format(dts, { parser: "typescript" });
 fse.outputFile(dir, dts).catch(console.error);
 ```
 
-Cool, that was great but there is still one big problem 😓, this will only work for CommonJS modules. The good news is that we can work around this limitation by using [Babel](https://babeljs.io/) a ESModule friendly version would look as follows.
+Cool, that was great but there is still one big problem 😓, this will only work for CommonJS modules. We can work around this limitation by using [Babel](https://babeljs.io/) a ESModule friendly version would look as follows.
 
 ```bash
 npm install @babel/core @babel/preset-env
@@ -150,7 +146,7 @@ That's it this small script should be enough to get your projects rolling.
 
 ### Generating type definitions for a React component
 
-The tool we will use for this is [react-to-typescript-definitions](https://github.com/KnisterPeter/react-to-typescript-definitions) which takes advantage of the component prop-types definitions and jsdoc to generate TypeScript definition files.
+The tool we will use for this is [react-to-typescript-definitions](https://github.com/KnisterPeter/react-to-typescript-definitions) which takes advantage of the component prop-type definitions and jsdoc to generate TypeScript definition files.
 
 ```bash
 npm install react-to-typescript-definitions
