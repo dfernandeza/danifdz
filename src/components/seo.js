@@ -26,7 +26,7 @@ function SEO({ description, lang, meta, title, thumbnail }) {
   );
 
   let origin = "";
-  if (window !== undefined) {
+  if (typeof window !== "undefined") {
     origin = window.location.origin;
   }
 
