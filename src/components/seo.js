@@ -25,13 +25,8 @@ function SEO({ description, lang, meta, title, thumbnail }) {
     `
   );
 
-  let origin = "";
-  if (typeof window !== "undefined") {
-    origin = window.location.origin;
-  }
-
   const metaDescription = description || site.siteMetadata.description;
-  const imageSrc = origin + thumbnail?.childImageSharp.sizes.src;
+  const imageSrc = `https://www.danifdz.dev${thumbnail?.childImageSharp.sizes.src}`;
 
   return (
     <Helmet
