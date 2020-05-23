@@ -4,6 +4,7 @@ date: "2020-05-17"
 title: "Generating TypeScript definition files directly from the source"
 tags: ["JavaScript", "TypeScript", "tooling"]
 excerpt: "Tools and techniques to generate TypeScript definition files directly from the source."
+thumbnail: "../../../images/thumb.png"
 published: true
 ---
 
