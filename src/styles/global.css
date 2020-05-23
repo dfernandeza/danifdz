@@ -232,6 +232,11 @@ a:active {
   margin-bottom: 60px;
 }
 
+.blog-post .time-to-read {
+  font-size: 0.95rem;
+  margin-left: 10px;
+}
+
 @keyframes fade-in {
   from {
     transform: translateY(20px);
