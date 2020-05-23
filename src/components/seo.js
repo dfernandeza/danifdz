@@ -25,9 +25,13 @@ function SEO({ description, lang, meta, title, thumbnail }) {
     `
   );
 
+  let origin = "";
+  if (window !== undefined) {
+    origin = window.location.origin;
+  }
+
   const metaDescription = description || site.siteMetadata.description;
-  const imageSrc =
-    (window?.location.origin ?? "") + thumbnail?.childImageSharp.sizes.src;
+  const imageSrc = origin + thumbnail?.childImageSharp.sizes.src;
 
   return (
     <Helmet
