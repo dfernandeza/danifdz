@@ -201,7 +201,7 @@ const dir = path.join(
   "/types/@pied-piper/compress/template/index.d.ts"
 );
 
-compile(mosaicTemplateSchema, "Template")
+compile(schema, "Template")
   .then((ts) => {
     let dts = `declare module '@pied-piper/compress' { ${ts} }`;
 
