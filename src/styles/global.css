@@ -16,7 +16,7 @@ i.e.
 
 :root {
   --color-primary: #4fb3ad;
-  --color-gradient-a: #4fb3ad;
+  --color-gradient-a: var(--color-primary);
   --color-gradient-b: #ff8aee;
   --left-right-padding: 40px;
 }
@@ -233,8 +233,9 @@ a:active {
 }
 
 .blog-post .time-to-read {
+  display: block;
   font-size: 0.95rem;
-  margin-left: 10px;
+  margin: 15px 0;
 }
 
 @keyframes fade-in {
@@ -263,6 +264,11 @@ a:active {
 .blog-post :not(pre) > code[class*="language-"],
 .blog-post pre > code[class*="language-"] {
   font-size: 1.1rem;
+}
+
+.blog-post blockquote {
+  border-left: 4px solid var(--color-primary);
+  padding-left: 1rem;
 }
 
 /* gatsby-remark-prismjs */
