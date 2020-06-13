@@ -4,6 +4,7 @@ import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import BgImage from "../components/background-image";
+import Tags from "../components/tags";
 
 const IndexPage = ({ data }) => {
   const {
@@ -43,22 +44,18 @@ const IndexPage = ({ data }) => {
               applications and exceptional user experiences for medium and
               large-sized companies.
             </p>
-            {/* <p>
-              Technologies I've been working with recently:
-              <span className="skill skill--html">#HTML</span>
-              <span className="skill skill--css">#CSS</span>
-              <span className="skill skill--js">#JavaScript</span>
-            </p> */}
           </div>
 
           <div className="featured-list">
-            {!!edges.length && <h2>Learning in public</h2>}
+            {!!edges.length && (
+              <h2 className="featured-list__title">Learning in public</h2>
+            )}
             {edges.map(({ node }, index) => (
               <article
                 key={`${node.id}-${index}`}
                 className="featured-list__item"
               >
-                <header>
+                <header className="featured-list__itemHeader">
                   <h3>
                     <Link
                       className="featured-list__item-link"
@@ -83,6 +80,7 @@ const IndexPage = ({ data }) => {
                 </header>
                 <p className="featured-list__item-description">
                   {node.frontmatter.excerpt}
+                  <Tags tags={node.frontmatter.tags} />
                 </p>
               </article>
             ))}
