@@ -302,12 +302,13 @@ a:active {
   padding: 0;
   margin: 0;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .tags__tag {
   border: 2px solid var(--color-secondary);
   border-radius: 4px;
-  margin: 0 10px 0 0;
+  margin: 0 10px 5px 0;
   padding: 0 5px;
   font-size: 0.8rem;
   align-self: start;
