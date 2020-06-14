@@ -16,7 +16,7 @@ First, let me set the scene, let's say your team is starting a new project withi
 
 Your team starts working on the project, everything is going great until you install one of the company internal JavaScript modules `@pied-piper/compress` and you start getting the following error on you code editor.
 
-```
+```bash
 Could not find a declaration file for module '@pied-piper/compress'. '/node_modules/@pied-piper/compress/dist/bundle.js' implicitly has an 'any' type.
 Try `npm install @types/pied-piper__compress` if it exists or add a new declaration (.d.ts) file containing `declare module '@pied-piper/compress';`
 ```
