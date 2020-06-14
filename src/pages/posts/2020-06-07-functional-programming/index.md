@@ -18,7 +18,8 @@ Then, I'll progressively introduce more concepts until we have enough informatio
 
 I'm describing this as a functional approach because I'll follow the single responsibility principle, (don't worry we will get to that concept) each article in these series will explain one single concept and I'll do my best to keep them short and concise.
 
-1. Function's anatomy (coming soon)
+1. [Function's anatomy](/functions)
+2. Functions as values (coming soon)
 
 ---
 
