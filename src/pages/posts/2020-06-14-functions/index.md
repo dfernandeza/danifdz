@@ -8,11 +8,11 @@ thumbnail: "../../../images/thumb.png"
 published: true
 ---
 
-_This is the 1st post of the ["Functional approach to functional programming"](/functional-approach-to-functional-programming) series._
+_This is the first post on the ["Functional approach to functional programming"](/functional-approach-to-functional-programming) series._
 
-In the context of functional programming, functions are the fundamental building blocks, they allow to group instructions in order to calculate a result, it is also possible to provide them with input values (parameters) and used them to perform the result calculation.
+In the context of functional programming, functions are the fundamental building blocks, they allow to group instructions in order to calculate a result, it is also possible to provide them with input values (parameters) and use them to perform the resulting calculation.
 
-Functions in JavaScript can be written in a couple different ways however, to our interest this is what we need to know (at least for now):
+Functions in JavaScript can be written in many different forms however, to our interest this is what we need to know (at least for now):
 
 ```js
 function add(firstNumber, secondNumber) {
@@ -20,7 +20,9 @@ function add(firstNumber, secondNumber) {
 }
 ```
 
-Let's go through each part in above function definition:
+> This form of defining a function is called a function declaration.
+
+Let's go through each part in above function declaration:
 
 - The `function` keyword, determines our intention to define a function.
 - The function name `add`, is the name we give to our function in order to refer to it.
@@ -33,15 +35,13 @@ A function can be executed/called as follows:
 add(40, 2); // 42
 ```
 
-By this point you might have some questions:
+In JavaScript functions don't necessarily have to return a value however, **in the context of functional programming all functions must return a value.**
 
-- Does every function needs a name?
-- Are parameters always required?
-- Is it a hard requirement to always return a value?
+> A function that doesn't return a value is usually referred to as a procedure
 
-All these questions will be answered as we move forward, there is no need to get overwhelmed now however, if you want to explore the function concept further I strongly suggest the [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions) which is a great resource.
+By this point you might have some questions hopefully, all these questions will be answered as we move forward, there is no need to get overwhelmed now however, if you want to explore the function concept further I strongly suggest the [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions) which is a great resource.
 
-Next up, "Functions as values".
+Next up, ["Functions as values"](/functions-as-values).
 
 > Programs are made out of functions, functions are programs. Functions are made out of functions.
 
