@@ -12,7 +12,7 @@ _This is the second post on the ["Functional approach to functional programming"
 
 In JavaScript **a function is just a value** and this feature is exactly what makes the language suitable to write functional code, let's expand on this.
 
-## What exactly does "a function is just a value" means?
+## What does exactly "a function is just a value" means?
 
 We have two variables in the following piece of code `firstNumber` and `secondNumber`, each of these variables is assigned with a value `4` and `2` respectively.
 
@@ -37,7 +37,7 @@ const greet = function () {
 };
 ```
 
-Now, if we can assign a function to a variable, can we also pass it as a parameter to other functions? Yes, and as a matter of fact, this is exactly what makes it possible to write functional code using JavaScript.
+Now, if we can assign a function to a variable, can we also pass it as a parameter to other functions? Yes, and as a matter of fact, this is one of the language features that makes it possible to write functional code using JavaScript.
 
 ```js
 function hello(greet) {
@@ -47,20 +47,22 @@ function hello(greet) {
 hello(greet); // 'Hello reader!'
 ```
 
-As with any other value you can pass the function directly and avoid the variable.
+As with any other value you can pass the function directly and skip the variable creation.
 
 ```js
 hello(function () {
-  return "Hi";
+  return "Hello";
 });
-// 'Hi reader!'
+// 'Hello reader!'
 ```
 
 _Even though this is possible it is strongly recommended to use variables to improve readability._
 
+ Great! 🎉 we just dissected what a higher-order function is, the `hello` function from above example is considered a higher-order function because it receives a function as parameter and calls it, a function that returns another function as its result is also considered as a higher-order function.
+
 I hope this post would help you understand this key concept as this will pretty much be the base upon which we will build more concepts moving forward.
 
-Next up, "Functions composition, first steps".
+Next up, "Function composition, first steps".
 
 > You can write functional code using JavaScript however, JavaScript is not a functional programming language.
 
