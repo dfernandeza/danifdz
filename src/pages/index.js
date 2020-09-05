@@ -8,7 +8,7 @@ import Tags from "../components/tags";
 
 const IndexPage = ({ data }) => {
   const {
-    allMarkdownRemark: { edges = [] },
+    allMarkdownRemark: { edges = [] }
   } = data;
 
   return (
@@ -43,6 +43,17 @@ const IndexPage = ({ data }) => {
               with 10+ years of experience developing high quality web
               applications and exceptional user experiences for medium and
               large-sized companies.
+            </p>
+            <p>
+              Currently working at{" "}
+              <a
+                href="https://newrelic.com/"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                New Relic
+              </a>
+              .
             </p>
           </div>
 

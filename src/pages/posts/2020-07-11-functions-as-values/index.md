@@ -58,11 +58,11 @@ hello(function () {
 
 _Even though this is possible it is strongly recommended to use variables to improve readability._
 
- Great! 🎉 we just dissected what a higher-order function is, the `hello` function from above example is considered a higher-order function because it receives a function as parameter and calls it, a function that returns another function as its result is also considered as a higher-order function.
+Great! 🎉 we just dissected what a higher-order function is, the `hello` function from above example is considered a higher-order function because it receives a function as parameter and calls it, a function that returns another function as its result is also considered as a higher-order function.
 
 I hope this post would help you understand this key concept as this will pretty much be the base upon which we will build more concepts moving forward.
 
-Next up, "Function composition, first steps".
+Next up, ["Function composition, first steps"](/function-composition-first-steps).
 
 > You can write functional code using JavaScript however, JavaScript is not a functional programming language.
 
