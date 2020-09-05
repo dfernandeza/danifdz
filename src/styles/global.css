@@ -258,6 +258,10 @@ a:active {
   padding-left: 1rem;
 }
 
+.blog-post .gatsby-highlight + blockquote {
+  margin-top: 1.45rem;
+}
+
 /* gatsby-remark-prismjs */
 
 /**
