@@ -21,7 +21,7 @@ I'm describing this as a functional approach because I'll follow the single resp
 1. [Function's anatomy](/functions)
 2. [Functions as values](/functions-as-values)
 3. [Function composition, first steps](/function-composition-first-steps)
-4. Function purity, for the pure fun (coming soon)
+4. Specialized functions (coming soon)
 
 ---
 
