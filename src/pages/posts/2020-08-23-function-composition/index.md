@@ -62,7 +62,7 @@ In the example we are composing 2 functions `add2` and `times2`, let's see if we
 - Both functions `add2` and `times2` return a value. ✅
 - `times2` returns a number and `add2` accepts a number as argument. ✅
 
-Something important to notice about the last point is that both functions accept a number as argument and both functions return a number, which allows to compose them in both directions. For example we could write an `add2times2` function.
+Something important to notice about the last point is that both functions accept a number as argument and both functions return a number, this allows to compose them in both directions. For example we could write an `add2times2` function.
 
 ```js
 /**
@@ -79,9 +79,37 @@ add2times2(2); // 8
 
 > Execution goes from right to left. i.e. A(B(1)) here B is executed first and whatever B outputs will be passed on to A.
 
-Great, it seems like we are aligned to the rules right?, well there is still one rule I deliberately omitted to mention before, **functions should be pure and generate no side-effects**. The reason why I omitted to mention this is because it is still possible to comprehend function composition without understanding what pure functions or side-effects are and at the same time these are such important concepts that I prefer to dedicate a separate post to them. So, get your favorite drink and spend some minutes internalizing what you just read, we will cover these concepts in the next post.
+We can now compose these resulting functions (`times2add2` and `add2times2`) with other functions to build more complex ones and continue doing this until we implement an entire program. This is actually the idea behind function composition, **to combine small and reusable pieces to build programs**.
 
-Next up, "Function purity, for the pure fun".
+This is great but... it seems very cumbersome and limiting to enforce an arity of one for all these functions, imagine we now want to implement an `add1times2` function.
+
+```js
+/**
+ * Performs n + 1
+ * @param {number} n
+ * @returns {number}
+ */
+function add1(n) {
+  return n + 1;
+}
+
+/**
+ * Performs (n + 1) * 2
+ * @param {number} n
+ * @returns {number}
+ */
+function add1times2(n) {
+  return times2(add1(n));
+}
+
+add1times2(1); // 4
+```
+
+As you can see we had to implement the `add1` function which is very similar to `add2`, we are repeating ourselves too much, it doesn't feel right. The good news is that there are a couple techniques we can use to work around this limitation and I will dedicate the next post to them.
+
+So, get your favorite drink and spend some minutes internalizing what you just read, we will cover these concepts in the next post.
+
+Next up, "Specialized functions".
 
 ---
 
