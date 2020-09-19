@@ -109,7 +109,7 @@ As you can see we had to implement the `add1` function which is very similar to 
 
 So, get your favorite drink and spend some minutes internalizing what you just read, we will cover these concepts in the next post.
 
-Next up, "Specialized functions".
+Next up, ["Specialized functions"](/specialized-functions).
 
 ---
 
