@@ -152,7 +152,7 @@ This is great but you might be wondering what is the deal with the implementatio
 
 >⚠️ spoiler alert ⚠️ to properly understand what is happening in this function we must first understand **closures**.
 
-Next up, "Closures".
+Next up, ["Closures"](/closures).
 
 ---
 

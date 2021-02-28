@@ -27,7 +27,7 @@ Let's go through each part in above function declaration:
 - The `function` keyword, determines our intention to define a function.
 - The function name `add`, is the name we give to our function in order to refer to it.
 - The function parameters `firstNumber` and `secondNumber`, are the input values.
-- The function body is everything between `{` and `}`, this is where the instructions needed to calculate the resulting value would be.
+- The function body is everything between `{` and `}`, this is where the instructions needed to calculate the resulting value would be. Variables defined within the function starting `{` and closing `}` are only accessible there, this area is known as the function scope.
 
 A function can be executed/called as follows:
 
