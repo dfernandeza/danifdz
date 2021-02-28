@@ -22,7 +22,8 @@ I'm describing this as a functional approach because I'll follow the single resp
 2. [Functions as values](/functions-as-values)
 3. [Function composition, first steps](/function-composition-first-steps)
 4. [Specialized functions](/specialized-functions) 
-5. Closures (coming soon)
+5. [Closures](/closures)
+6. Mapping (coming soon)
 
 ---
 
