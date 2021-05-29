@@ -2,7 +2,7 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 
 import Layout from "../components/layout";
-import SEO from "../components/seo";
+import SearchEngineOptimization from "../components/seo";
 import BgImage from "../components/background-image";
 import Tags from "../components/tags";
 
@@ -27,7 +27,7 @@ const IndexPage = ({ data }) => {
       </BgImage>
 
       <Layout>
-        <SEO title="Daniel Fernández - Frontend Developer" />
+        <SearchEngineOptimization title="Daniel Fernández - Frontend Developer" />
 
         <section className="landing">
           <div className="landing__abstract">

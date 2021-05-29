@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 
 import Header from "../components/header";
 import Layout from "../components/layout";
-import SEO from "../components/seo";
+import SearchEngineOptimization from "../components/seo";
 
 import NotFoundPage from "../pages/404";
 
@@ -18,7 +18,7 @@ const Template = ({ data }) => {
     <>
       <Header siteTitle="Daniel Fernández" />
       <Layout>
-        <SEO
+        <SearchEngineOptimization
           title={frontmatter.title}
           description={frontmatter.excerpt || excerpt}
           thumbnail={frontmatter.thumbnail}
@@ -54,8 +54,8 @@ export const query = graphql`
         excerpt
         thumbnail {
           childImageSharp {
-            sizes(maxWidth: 300) {
-              ...GatsbyImageSharpSizes
+            fluid(maxWidth: 300) {
+              src
             }
           }
         }
