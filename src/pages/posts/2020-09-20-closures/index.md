@@ -63,7 +63,7 @@ You might want to go deeper and learn about how JavaScript handles closures (and
 
 Thanks for reading. 😃
 
-Next up, "Mapping".
+Next up, ["Mapping"](/mapping).
 
 ---
 
