@@ -23,7 +23,8 @@ I'm describing this as a functional approach because I'll follow the single resp
 3. [Function composition, first steps](/function-composition-first-steps)
 4. [Specialized functions](/specialized-functions) 
 5. [Closures](/closures)
-6. Mapping (coming soon)
+6. [Mapping](/mapping) 
+7. Filtering (coming soon)
 
 ---
 
