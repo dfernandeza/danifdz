@@ -39,6 +39,8 @@ const greet = function () {
 
 Now, if we can assign a function to a variable, can we also pass it as a parameter to other functions? Yes, and as a matter of fact, this is one of the language features that makes it possible to write functional code using JavaScript.
 
+> Functions passed as a parameter to another function are commonly known as callbacks.
+
 ```js
 function hello(greet) {
   return greet() + " reader!";
