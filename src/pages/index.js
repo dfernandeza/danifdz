@@ -82,7 +82,7 @@ const IndexPage = ({ data }) => {
                     </Link>
                   </h3>
                   <small className="featured-list__item-meta">
-                    {node.frontmatter.date} •{" "}
+                    {/* {node.frontmatter.date} •{" "} */}
                     <span role="img" aria-label="hourglass">
                       ⌛
                     </span>
