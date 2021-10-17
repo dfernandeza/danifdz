@@ -119,7 +119,7 @@ const greatRestaurants = restaurants.filter(isItGreat).map(getName);
 
 Alright, two down, one to go.
 
-Next up, "Reducing".
+Next up, ["Reducing"](/reducing).
 
 ---
 
