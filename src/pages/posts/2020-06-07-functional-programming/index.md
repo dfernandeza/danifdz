@@ -25,7 +25,8 @@ I'm describing this as a functional approach because I'll follow the single resp
 5. [Closures](/closures)
 6. [Mapping](/mapping)
 7. [Filtering](/filtering)
-8. Reducing (coming soon)
+8. [Reducing](/reducing)
+9. Pure functions (coming soon)
 
 ---
 

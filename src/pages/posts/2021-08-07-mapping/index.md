@@ -10,7 +10,7 @@ published: true
 
 _This is the sixth post on the ["Functional approach to functional programming"](/functional-approach-to-functional-programming) series._
 
-If you have been following the ["Functional approach to functional programming"](/functional-approach-to-functional-programming) series then you will be happy to know that this is where everything starts to make sense (or at least that is what I'm hopping). When I first started learning functional programming I couldn't really understand how to connect all the different concepts and it was only after writing a lot of list manipulation algorithms that it finally clicked.
+If you have been following the ["Functional approach to functional programming"](/functional-approach-to-functional-programming) series then you will be happy to know that this is where everything starts to make sense (or at least that is what I'm hopping). When I first started learning functional programming I couldn't really understand how all the different concepts are connected between each other and it was only after writing a lot of list manipulation algorithms that it finally clicked.
 
 Mapping is the first one of the three well known techniques to manipulate lists that we will cover in the series: mapping, filtering, and reducing.
 
