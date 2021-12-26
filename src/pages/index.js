@@ -32,20 +32,10 @@ const IndexPage = ({ data }) => {
         <section className="landing">
           <div className="landing__abstract">
             <p>
-              A Frontend Developer born in Costa Rica{" "}
-              <span role="img" aria-label="Costa Rica">
-                🇨🇷
-              </span>
-              , living in Spain{" "}
-              <span aria-label="Spain" role="img">
-                🇪🇸
-              </span>{" "}
-              with 10+ years of experience developing high quality web
-              applications and exceptional user experiences for medium and
-              large-sized companies.
+              A software engineer with 10+ years of experience developing high quality web applications and exceptional user experiences for medium and large-sized companies.
             </p>
             <p>
-              Currently working at{" "}
+              Currently engineering at{" "}
               <a
                 href="https://newrelic.com/"
                 rel="noopener noreferrer"
