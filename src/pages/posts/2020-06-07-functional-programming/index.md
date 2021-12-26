@@ -16,7 +16,7 @@ First, I will try to build a solid knowledge base by tackling the concepts that 
 
 Then, I'll progressively introduce more concepts until we have enough information to structure our own mental model.
 
-I'm describing this as a functional approach because I'll follow the single responsibility principle, (don't worry we will get to that concept) each article in these series will explain one single concept and I'll do my best to keep them short and concise.
+I'm describing this as a functional approach because each article in these series will explain one single concept (I'll do my best to keep them short and concise) in a way that, as we move further in the series we could compose them and correlate them to form more complex concepts.
 
 1. [Function's anatomy](/functions)
 2. [Functions as values](/functions-as-values)
@@ -26,7 +26,8 @@ I'm describing this as a functional approach because I'll follow the single resp
 6. [Mapping](/mapping)
 7. [Filtering](/filtering)
 8. [Reducing](/reducing)
-9. Pure functions (coming soon)
+9. [Pure functions](/pure-functions)
+10. A word about immutability (coming soon)
 
 ---
 

@@ -3,7 +3,7 @@ path: "/reducing"
 date: "2021-09-24"
 title: "Reducing"
 tags: ["learning", "javascript", "functional programming", "series"]
-excerpt: ""
+excerpt: "Reducing the values of a list down to a single value."
 thumbnail: "../../../images/thumb.png"
 published: true
 ---
@@ -130,7 +130,7 @@ invoice = invoice + "\n" + "TOTAL - " + "$" + total;
 
 There are many other ways in which we could have implemented this. In fact, I'd like to encourage you to come up with your own implementation. What about mixing `map` and `reduce` 🤔?
 
-Next up, "Pure functions".
+Next up, ["Pure functions"](/pure-functions).
 
 ---
 
