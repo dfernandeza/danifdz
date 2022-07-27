@@ -1,13 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import "./toggle.css";
 
-const isBrowser = typeof window !== undefined;
-
 export default function Toggle() {
-  const [theme, setTheme] = useState(
-    typeof isBrowser ? globalThis.__theme : "light"
-  );
+  const [theme, setTheme] = useState();
 
   function onChange(e) {
     const theme = e.target.checked ? "dark" : "light";
@@ -21,6 +17,14 @@ export default function Toggle() {
 
     document.body.classList.remove(theme === "light" ? "dark" : "light");
     document.body.classList.add(theme);
+  }
+
+  useEffect(() => {
+    setTheme(window.__theme);
+  }, []);
+
+  if (!theme) {
+    return null;
   }
 
   return (

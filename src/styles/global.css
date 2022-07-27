@@ -180,7 +180,7 @@ a:active {
   }
 }
 
-.avatar {
+.avatar [data-gatsby-image-wrapper] {
   width: 150px;
   height: 150px;
   float: left;
@@ -191,6 +191,8 @@ a:active {
   /* position: relative; */
   overflow: hidden;
 }
+
+/* .avatar  */
 
 /* .avatar svg {
   position: absolute;
