@@ -37,6 +37,8 @@ export default function IndexPage({ data }) {
                 alt="A picture of Daniel smiling"
                 src="../images/me.png"
                 width={150}
+                loading="eager"
+                placeholder="none"
               />
               {/* <svg
                 width="150"
