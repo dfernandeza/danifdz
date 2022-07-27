@@ -188,24 +188,20 @@ a:active {
   border-radius: 50%;
   -webkit-shape-outside: circle(50%);
   shape-outside: circle(50%);
-  /* position: relative; */
+  position: relative;
   overflow: hidden;
 }
 
-.avatar [data-placeholder-image] {
-  z-index: -1;
-}
-
-/* .avatar svg {
+.avatar svg {
   position: absolute;
   top: 0;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
-} */
+}
 
-/* .avatar:hover svg {
+.avatar:hover svg {
   opacity: 1;
-} */
+}
 
 .featured-list {
   margin-top: 45px;

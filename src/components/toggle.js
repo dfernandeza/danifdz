@@ -23,10 +23,6 @@ export default function Toggle() {
     setTheme(window.__theme);
   }, []);
 
-  if (!theme) {
-    return null;
-  }
-
   return (
     <div className="themeToggle">
       <div className="themeToggle-wrapper">
