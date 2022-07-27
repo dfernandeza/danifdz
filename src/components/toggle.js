@@ -30,15 +30,17 @@ export default function Toggle() {
   return (
     <div className="themeToggle">
       <div className="themeToggle-wrapper">
-        <label className="themeToggle-label">
-          <input
-            className="themeToggle-input"
-            type="checkbox"
-            checked={theme !== "light"}
-            onChange={onChange}
-          />
-          <span className="themeToggle-slider"></span>
-        </label>
+        {theme !== undefined ? (
+          <label className="themeToggle-label">
+            <input
+              className="themeToggle-input"
+              type="checkbox"
+              checked={theme !== "light"}
+              onChange={onChange}
+            />
+            <span className="themeToggle-slider"></span>
+          </label>
+        ) : null}
       </div>
     </div>
   );

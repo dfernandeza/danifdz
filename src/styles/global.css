@@ -180,7 +180,7 @@ a:active {
   }
 }
 
-.avatar [data-gatsby-image-wrapper] {
+.avatar {
   width: 150px;
   height: 150px;
   float: left;
@@ -192,7 +192,9 @@ a:active {
   overflow: hidden;
 }
 
-/* .avatar  */
+.avatar [data-placeholder-image] {
+  z-index: -1;
+}
 
 /* .avatar svg {
   position: absolute;
