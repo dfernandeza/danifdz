@@ -7,7 +7,7 @@ import SearchEngineOptimization from "../components/seo";
 
 import NotFoundPage from "../pages/404";
 
-const Template = ({ data }) => {
+export default function Template({ data }) {
   if (data.markdownRemark === null) {
     return <NotFoundPage />;
   }
@@ -39,10 +39,10 @@ const Template = ({ data }) => {
       </Layout>
     </>
   );
-};
+}
 
 export const query = graphql`
-  query($pathSlug: String!) {
+  query ($pathSlug: String!) {
     markdownRemark(
       frontmatter: { path: { eq: $pathSlug }, published: { ne: false } }
     ) {
@@ -63,5 +63,3 @@ export const query = graphql`
     }
   }
 `;
-
-export default Template;

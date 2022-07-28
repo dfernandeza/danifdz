@@ -5,30 +5,30 @@ module.exports = {
     author: `@dfernandeza`,
     siteUrl: `https://danifdz.dev`,
     social: {
-      twitter: `@dfernandeza`,
-    },
+      twitter: `@dfernandeza`
+    }
   },
   plugins: [
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: `UA-37854450-6`,
-      },
+        trackingId: `UA-37854450-6`
+      }
     },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `pages`,
-        path: `${__dirname}/src/pages`,
-      },
+        path: `${__dirname}/src/pages`
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
-      },
+        path: `${__dirname}/src/images`
+      }
     },
     {
       resolve: `gatsby-transformer-remark`,
@@ -42,29 +42,30 @@ module.exports = {
               prompt: {
                 user: "root",
                 host: "localhost",
-                global: false,
-              },
-            },
+                global: false
+              }
+            }
           },
           {
             resolve: `gatsby-remark-external-links`,
             options: {
               target: `_blank`,
-              rel: `nofollow noopener noreferrer external`,
-            },
+              rel: `nofollow noopener noreferrer external`
+            }
           },
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590,
-            },
+              maxWidth: 590
+            }
           },
           `gatsby-remark-smartypants`,
           `gatsby-remark-responsive-iframe`,
-          `gatsby-remark-copy-linked-files`,
-        ],
-      },
+          `gatsby-remark-copy-linked-files`
+        ]
+      }
     },
+    `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -76,11 +77,11 @@ module.exports = {
         background_color: `#e8e1db`,
         theme_color: `#54b3a7`,
         display: `minimal-ui`,
-        icon: `src/images/danifdz-icon.png`, // This path is relative to the root of the site.
-      },
-    },
+        icon: `src/images/danifdz-icon.png` // This path is relative to the root of the site.
+      }
+    }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
-  ],
+  ]
 };

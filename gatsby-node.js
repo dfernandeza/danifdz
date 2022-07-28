@@ -16,7 +16,7 @@ exports.createPages = ({ graphql, actions }) => {
       graphql(
         `
           query {
-            allMarkdownRemark {
+            allMarkdownRemark(sort: {order: DESC, fields: frontmatter___date}) {
               edges {
                 node {
                   frontmatter {
@@ -37,6 +37,8 @@ exports.createPages = ({ graphql, actions }) => {
               context: {
                 pathSlug: path,
               },
+              // Enable deferred static generation
+              // defer: true/false,
             });
           });
         })

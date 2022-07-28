@@ -1,38 +1,80 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
 
+import Toggle from "../components/toggle";
 import Layout from "../components/layout";
 import SearchEngineOptimization from "../components/seo";
-import BgImage from "../components/background-image";
+import PartySVG from "../components/party";
 import Tags from "../components/tags";
 
-const IndexPage = ({ data }) => {
+export default function IndexPage({ data }) {
   const {
     allMarkdownRemark: { edges = [] }
   } = data;
 
   return (
     <>
-      <BgImage>
-        <div className="header__container">
-          <h1 className="header__title text--primary">I'm</h1> <br />
-          <h1 className="header__title header__title--name text--primary">
-            Daniel
-          </h1>{" "}
-          <br />
-          <h1 className="header__title header__title--lastname text--primary">
-            Fernández
-          </h1>
+      <Toggle />
+      <header className="header">
+        <h1 className="header__title">
+          <span>I'm</span>
+          <span className="header__title--name">Daniel</span>
+          <span className="header__title--lastname">Fernández</span>
+        </h1>
+        <div className="nineties-party">
+          <PartySVG />
         </div>
-      </BgImage>
+      </header>
 
       <Layout>
         <SearchEngineOptimization title="Daniel Fernández - Frontend Developer" />
 
         <section className="landing">
           <div className="landing__abstract">
+            <div className="avatar">
+              <StaticImage
+                alt="A picture of Daniel smiling"
+                src="../images/me.png"
+                width={150}
+                loading="eager"
+                placeholder="none"
+              />
+              {/* <svg
+                width="150"
+                height="150"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M147.5 75c0 40.041-32.459 72.5-72.5 72.5-40.04 0-72.5-32.459-72.5-72.5C2.5 34.96 34.96 2.5 75 2.5c40.041 0 72.5 32.46 72.5 72.5Z"
+                  fill="#fbc641"
+                  stroke="#000"
+                  strokeWidth="5"
+                />
+                <path
+                  d="M25.313 82.5c35.077 63.339 95.788 20.48 100.312 0"
+                  stroke="#000"
+                  strokeWidth="5"
+                />
+                <path
+                  d="M52.5 66.563c5.178 0 9.375-9.235 9.375-20.626 0-11.39-4.197-20.624-9.375-20.624s-9.375 9.234-9.375 20.625c0 11.39 4.197 20.624 9.375 20.624ZM98.438 66.563c5.177 0 9.374-9.235 9.374-20.626 0-11.39-4.197-20.624-9.374-20.624-5.178 0-9.376 9.234-9.376 20.625 0 11.39 4.198 20.624 9.376 20.624Z"
+                  fill="#000"
+                />
+              </svg> */}
+            </div>
+
             <p>
-              A software engineer with 10+ years of experience developing high quality web applications and exceptional user experiences for medium and large-sized companies.
+              I've been doing software engineering for 10+ years, during which I
+              have gained valuable knowledge and experience developing and
+              architecting web applications for small, medium and large sized
+              companies. I really enjoy creating high-quality web applications
+              using tools like React and NodeJS but I will be happy to jump and
+              learn new technologies at any moment.
+            </p>
+            <p>
+              I also enjoy and have experience leading engineering teams and
+              working with stakeholders to build successful software products.
             </p>
             <p>
               Currently engineering at{" "}
@@ -90,7 +132,7 @@ const IndexPage = ({ data }) => {
       </Layout>
     </>
   );
-};
+}
 
 export const query = graphql`
   query HomepageQuery {
@@ -113,5 +155,3 @@ export const query = graphql`
     }
   }
 `;
-
-export default IndexPage;
