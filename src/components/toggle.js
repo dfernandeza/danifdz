@@ -17,6 +17,12 @@ export default function Toggle() {
 
     document.body.classList.remove(theme === "light" ? "dark" : "light");
     document.body.classList.add(theme);
+
+    window.gtag("event", "changeTheme", {
+      event_category: "theme",
+      event_label: "Theme toggler",
+      theme
+    });
   }
 
   useEffect(() => {
