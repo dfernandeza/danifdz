@@ -7,6 +7,7 @@
 
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
+import { OutboundLink } from "gatsby-plugin-google-gtag";
 
 import "./layout.css";
 
@@ -15,30 +16,30 @@ export default function Layout({ children }) {
     <Fragment>
       <main className="layout">{children}</main>
       <footer className="footer">
-        <a
+        <OutboundLink
           target="_blank"
           rel="noopener noreferrer"
           className="footer__link"
           href="https://twitter.com/dfernandeza"
         >
           Twitter
-        </a>
-        <a
+        </OutboundLink>
+        <OutboundLink
           target="_blank"
           rel="noopener noreferrer"
           className="footer__link"
           href="https://github.com/dfernandeza"
         >
           Github
-        </a>
-        <a
+        </OutboundLink>
+        <OutboundLink
           target="_blank"
           rel="noopener noreferrer"
           className="footer__link"
-          href="https://www.linkedin.com/in/dfernandeza1/"
+          href="https://www.linkedin.com/in/imdanifdz/"
         >
           LinkedIn
-        </a>
+        </OutboundLink>
 
         <small className="footer__text">
           © {new Date().getFullYear()}, Built with{" "}
