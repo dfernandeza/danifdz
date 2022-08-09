@@ -7,11 +7,48 @@ import Layout from "../components/layout";
 import SearchEngineOptimization from "../components/seo";
 import PartySVG from "../components/party";
 import Tags from "../components/tags";
+import Card from "../components/card";
+
+const SERIES = ["functional programming"];
+
+function fromNodeToPost(node) {
+  const {
+    id,
+    frontmatter: { date, excerpt, path, tags, title },
+    timeToRead,
+    excerpt: truncatedExcerpt
+  } = node;
+
+  return { id, date, excerpt, path, truncatedExcerpt, tags, timeToRead, title };
+}
 
 export default function IndexPage({ data }) {
   const {
-    allMarkdownRemark: { edges = [] }
+    posts: { edges: postEdges = [] },
+    series: { group: seriesGroups = [] }
   } = data;
+
+  const posts = [];
+
+  for (const { node } of postEdges) {
+    const post = fromNodeToPost(node);
+    const postSeries = SERIES.find(
+      (s) => post.tags.includes("series") && post.tags.includes(s)
+    );
+
+    if (postSeries) {
+      const { edges, totalCount } = seriesGroups.find(
+        (group) => group.fieldValue === postSeries
+      );
+
+      post.series = {
+        posts: edges.map(({ node }) => fromNodeToPost(node)),
+        count: totalCount
+      };
+    }
+
+    posts.push(post);
+  }
 
   return (
     <>
@@ -90,43 +127,84 @@ export default function IndexPage({ data }) {
           </div>
 
           <div className="featured-list">
-            {!!edges.length && (
+            {!!posts.length && (
               <h2 className="featured-list__title">Learning in public</h2>
             )}
-            {edges.map(({ node }, index) => (
-              <article
-                key={`${node.id}-${index}`}
-                className="featured-list__item"
-              >
-                <header className="featured-list__itemHeader">
-                  <h3>
-                    <Link
-                      className="featured-list__item-link"
-                      to={node.frontmatter.path}
-                    >
-                      <span className="featured-list__item-link__text">
-                        {node?.frontmatter?.title}
-                      </span>
-                      <span className="featured-list__item-link__arrow">
-                        {" "}
-                        →
-                      </span>
-                    </Link>
-                  </h3>
-                  <small className="featured-list__item-meta">
-                    {/* {node.frontmatter.date} •{" "} */}
-                    <span role="img" aria-label="hourglass">
-                      ⌛
-                    </span>
-                    {node.timeToRead} min read
-                  </small>
-                </header>
-                <p className="featured-list__item-description">
-                  {node.frontmatter.excerpt}
-                  <Tags tags={node.frontmatter.tags} />
-                </p>
-              </article>
-            ))}
+
+            {posts.map((post, index) => {
+              return (
+                <article
+                  key={`${post.id}-${index}`}
+                  className="featured-list__item"
+                >
+                  <header className="featured-list__itemHeader">
+                    <h3>
+                      <Link className="featured-list__item-link" to={post.path}>
+                        <span className="featured-list__item-link__text">
+                          {post.title}
+                        </span>
+                        <span className="featured-list__item-link__arrow">
+                          {" "}
+                          →
+                        </span>
+                      </Link>
+                    </h3>
+                    <small className="featured-list__item-meta">
+                      {/* {post.date} •{" "} */}
+                      {post?.series ? (
+                        <>
+                          {" "}
+                          <span roles="img" aria-label="notebook">
+                            📒
+                          </span>{" "}
+                          {post.series.count} blog posts
+                        </>
+                      ) : (
+                        <>
+                          <span role="img" aria-label="hourglass">
+                            ⌛
+                          </span>
+                          {post.timeToRead} min read
+                        </>
+                      )}
+                    </small>
+                  </header>
+                  <p className="featured-list__item-description">
+                    {post.excerpt}
+                    <Tags tags={post.tags} />
+                  </p>
+                  {post?.series ? (
+                    <ul className="series-list">
+                      {post.series.posts.map((s) => {
+                        return (
+                          <li className="series-list__item">
+                            <Link
+                              className="series-list__item-link"
+                              to={s.path}
+                            >
+                              <Card
+                                title={
+                                  <>
+                                    <h3>{s.title} </h3>
+                                    <small>
+                                      <span role="img" aria-label="hourglass">
+                                        ⌛
+                                      </span>
+                                      {s.timeToRead} min read
+                                    </small>
+                                  </>
+                                }
+                                text={s.truncatedExcerpt}
+                              />
+                            </Link>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  ) : null}
+                </article>
+              );
+            })}
           </div>
         </section>
       </Layout>
@@ -136,22 +214,46 @@ export default function IndexPage({ data }) {
 
 export const query = graphql`
   query HomepageQuery {
-    allMarkdownRemark(
+    posts: allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { frontmatter: { published: { ne: false } } }
+      filter: {
+        frontmatter: { published: { ne: false }, parent: { eq: null } }
+      }
     ) {
       edges {
         node {
-          timeToRead
-          frontmatter {
-            title
-            path
-            date(formatString: "MMM D, Y")
-            tags
-            excerpt
-          }
+          ...NodeFragment
         }
       }
     }
+    series: allMarkdownRemark(
+      sort: { order: ASC, fields: [frontmatter___date] }
+      filter: {
+        frontmatter: { published: { ne: false }, tags: { eq: "series" } }
+      }
+    ) {
+      group(field: frontmatter___parent) {
+        fieldValue
+        edges {
+          node {
+            ...NodeFragment
+          }
+        }
+        totalCount
+      }
+    }
+  }
+
+  fragment NodeFragment on MarkdownRemark {
+    id
+    timeToRead
+    frontmatter {
+      title
+      path
+      date(formatString: "MMM D, Y")
+      tags
+      excerpt
+    }
+    excerpt(pruneLength: 120)
   }
 `;

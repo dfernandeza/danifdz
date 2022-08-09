@@ -6,6 +6,7 @@ tags: ["learning", "javascript", "functional programming", "series"]
 excerpt: "Another day another another functional approach to manipulate lists."
 thumbnail: "../../../images/thumb.png"
 published: true
+parent: "functional programming"
 ---
 
 _This is the seventh post on the ["Functional approach to functional programming"](/functional-approach-to-functional-programming) series._
