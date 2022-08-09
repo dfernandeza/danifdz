@@ -6,6 +6,7 @@ tags: ["learning", "javascript", "functional programming", "series"]
 excerpt: "Quick exploration of the Function concept in the context of functional programming."
 thumbnail: "../../../images/thumb.png"
 published: true
+parent: "functional programming"
 ---
 
 _This is the first post on the ["Functional approach to functional programming"](/functional-approach-to-functional-programming) series._

@@ -6,6 +6,7 @@ tags: ["learning", "javascript", "functional programming", "series"]
 excerpt: "In JavaScript a function is just a value and this feature is exactly what makes the language suitable to write functional code, let's expand on this."
 thumbnail: "../../../images/thumb.png"
 published: true
+parent: "functional programming"
 ---
 
 _This is the second post on the ["Functional approach to functional programming"](/functional-approach-to-functional-programming) series._

@@ -6,6 +6,7 @@ tags: ["learning", "javascript", "functional programming", "series"]
 excerpt: 'If you have been following the "Functional approach to functional programming" series then you will be happy to know that this is where everything starts to make sense (or at least that is what I''m hopping).'
 thumbnail: "../../../images/thumb.png"
 published: true
+parent: "functional programming"
 ---
 
 _This is the sixth post on the ["Functional approach to functional programming"](/functional-approach-to-functional-programming) series._

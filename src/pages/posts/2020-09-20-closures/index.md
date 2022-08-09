@@ -3,14 +3,15 @@ path: "/closures"
 date: "2021-02-27"
 title: "Closures"
 tags: ["learning", "javascript", "functional programming", "series"]
-excerpt: ""
+excerpt: "Understanding closures will help us understand how other concepts (currying, higher-order functions) are related to each other and will also help our brain creating the necessary connections for these concepts to take hold."
 thumbnail: "../../../images/thumb.png"
 published: true
+parent: "functional programming"
 ---
 
 _This is the fifth post on the ["Functional approach to functional programming"](/functional-approach-to-functional-programming) series._
 
-We have covered quite a few concepts so far. We have also learned how these concepts are related to each other for example, in the [previous post](/specialized-functions) we saw how a curried function is also a [higher-order function](/functions-as-values). It's very important to understand these connections as this is what will allow us to create our own mental models. 
+We have covered quite a few concepts so far. We have also learned how these concepts are related to each other for example, in the [previous post](/specialized-functions) we saw how a curried function is also a [higher-order function](/functions-as-values). It's very important to understand these connections as this is what will allow us to create our own mental models.
 
 In this post we will explore one of these connecting concepts, **closures**. Understanding **closures** will help us understand how a curried function works under the hood and will also help our brain creating the necessary connections for the concepts to take hold.
 
@@ -46,13 +47,13 @@ At this point we have something similar to the following code:
 ```js
 const add2 = function addN(n2) {
   return n1 + n2; // n1 contains the value 2
-}
+};
 ```
 
 Now, what happens when we execute `add2(40)`?
 
 1. Assigns the value `40` to `n2`.
-2. Performs `n1 + n2` where `n1` contains the value `2` and (as mentioned in the previous step) `n2` contains the value `40`. 
+2. Performs `n1 + n2` where `n1` contains the value `2` and (as mentioned in the previous step) `n2` contains the value `40`.
 3. Returns the resulting number which is `42`.
 
 Did you notice how `add2` remembered the value stored in `n1`? This distinctive aspect of the `add2` function makes it a closure function, it encloses the variable `n1` from its parent function scope.

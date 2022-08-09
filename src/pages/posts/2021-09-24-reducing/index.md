@@ -6,6 +6,7 @@ tags: ["learning", "javascript", "functional programming", "series"]
 excerpt: "Reducing the values of a list down to a single value."
 thumbnail: "../../../images/thumb.png"
 published: true
+parent: "functional programming"
 ---
 
 _This is the eighth post on the ["Functional approach to functional programming"](/functional-approach-to-functional-programming) series._

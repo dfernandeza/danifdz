@@ -6,6 +6,7 @@ tags: ["learning", "javascript", "functional programming", "series"]
 excerpt: "Probably the most popular and more discussed concept in the functional programing world."
 thumbnail: "../../../images/thumb.png"
 published: true
+parent: "functional programming"
 ---
 
 _This is the ninth post on the ["Functional approach to functional programming"](/functional-approach-to-functional-programming) series._
