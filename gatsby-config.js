@@ -9,12 +9,6 @@ module.exports = {
     }
   },
   plugins: [
-    // {
-    //   resolve: `gatsby-plugin-google-analytics`,
-    //   options: {
-    //     trackingId: `UA-37854450-6`
-    //   }
-    // },
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
