@@ -281,3 +281,28 @@ th:last-child,
 td:last-child {
   padding-right: 0;
 }
+
+.gatsby-highlight-code-line {
+  background-color: hsla(284, 33%, 69%, 0.1);
+  display: block;
+  margin-right: -1rem;
+  margin-left: -1rem;
+  padding-right: 1rem;
+  padding-left: 0.55rem;
+  border-left: 0.45rem solid var(--hot-pink);
+}
+
+/**
+ * You will notice that when a highlighted line runs wider than the surrounding code block 
+ * container (causing a horizontal scrollbar), its background won’t be drawn for the initially 
+ * hidden, overflowing part. :(
+ *
+ * The fix consist of:
+ * 1. Make the element just wide enough to fit its content.
+ * 2. Always fill the visible space in .gatsby-highlight.
+ */
+.gatsby-highlight pre[class*="language-"] {
+  overflow: initial;
+  float: left; /* 1 */
+  min-width: 100%; /* 2 */
+}
