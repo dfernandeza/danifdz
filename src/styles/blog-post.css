@@ -282,6 +282,75 @@ td:last-child {
   padding-right: 0;
 }
 
+.blog-post {
+  animation: ease-out 0.5s forwards fade-in;
+  margin-bottom: 60px;
+}
+
+.blog-post .time-to-read {
+  display: block;
+  font-size: 0.95rem;
+  margin: 15px 0;
+}
+
+@keyframes fade-in {
+  from {
+    transform: translateY(20px);
+    opacity: 0.5;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blog-post {
+    animation: none;
+  }
+}
+
+.blog-post p {
+  margin: 0 0 1.45rem;
+  padding: 0;
+}
+
+.blog-post li {
+  margin-bottom: 0.725rem;
+}
+
+/* inline code */
+.blog-post :not(pre) > code[class*="language-"] {
+  padding: 0.3rem;
+  white-space: normal;
+}
+
+.blog-post :not(pre) > code[class*="language-"],
+.blog-post pre > code[class*="language-"] {
+  font-size: 1rem;
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+.blog-post blockquote {
+  border-left: 4px solid var(--cyan);
+  padding-left: 1rem;
+  margin: 0 1.45rem 1.45rem;
+}
+
+/* gatsby-remark-prismjs */
+.blog-post .gatsby-highlight {
+  background: #111b27;
+  border-radius: 10px;
+  margin: 0.75rem 0;
+  overflow: auto;
+}
+
+.blog-post .gatsby-highlight + blockquote {
+  margin-top: 1.45rem;
+}
+
 .gatsby-highlight-code-line {
   background-color: hsla(284, 33%, 69%, 0.1);
   display: block;
