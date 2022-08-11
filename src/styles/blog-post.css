@@ -328,6 +328,9 @@ td:last-child {
 .blog-post :not(pre) > code[class*="language-"],
 .blog-post pre > code[class*="language-"] {
   font-size: 1rem;
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
 }
 
 .blog-post blockquote {
