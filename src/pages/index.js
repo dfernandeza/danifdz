@@ -116,11 +116,11 @@ export default function IndexPage({ data }) {
             <p>
               Currently engineering at{" "}
               <a
-                href="https://newrelic.com/"
+                href="https://www.twilio.com/"
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                New Relic
+                Twilio
               </a>
               .
             </p>
