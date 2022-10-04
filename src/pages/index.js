@@ -122,7 +122,7 @@ export default function IndexPage({ data }) {
               >
                 Twilio
               </a>
-              .
+              . <small>Opinions are my own.</small>
             </p>
           </div>
 
