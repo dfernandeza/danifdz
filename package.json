@@ -29,7 +29,7 @@
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
-    "postcss": "^8.4.16",
+    "postcss": "^8.4.31",
     "prettier": "^2.7.1"
   },
   "keywords": [
