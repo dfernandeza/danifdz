@@ -1,10 +1,10 @@
 name: CI
 
 on:
-  push:
-    branches: ['master']
+  # push:
+  #   branches: ['master']
   pull_request:
-    branches: ['master']
+    branches: ["master"]
 
 jobs:
   build:
@@ -14,15 +14,28 @@ jobs:
       matrix:
         node-version: [20.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-    
+
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-      - run: npm ci
-      - run: npm test
+          cache: "npm"
 
-      
+      - name: Install
+        run: |
+          npm ci
+      - name: Build
+        run: |
+          npm run build
+      - name: Waiting for 200 from the Netlify Preview
+        uses: jakepartusch/wait-for-netlify-action@v1
+        id: waitFor200
+        with:
+          site_name: "danifdz"
+          max_timeout: 120
+      - name: Lighthouse CI
+        run: |
+          npm install -g @lhci/cli@0.13.x
+          lhci autorun --collect.url=${{ steps.waitFor200.outputs.url }}

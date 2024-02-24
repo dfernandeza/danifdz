@@ -113,7 +113,7 @@ export default function IndexPage({ data }) {
               I also enjoy and have experience leading engineering teams and
               working with stakeholders to build successful software products.
             </p>
-            <p>
+            {/* <p>
               Currently engineering at{" "}
               <a
                 href="https://www.twilio.com/"
@@ -123,7 +123,7 @@ export default function IndexPage({ data }) {
                 Twilio
               </a>
               . <small>Opinions are my own.</small>
-            </p>
+            </p> */}
           </div>
 
           <div className="featured-list">
