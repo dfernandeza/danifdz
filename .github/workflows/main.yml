@@ -41,19 +41,16 @@ jobs:
           npm install -g @lhci/cli@0.13.x
           lhci autorun --collect.url=${{ steps.waitFor200.outputs.url }} --collect.settings.budgetPath="budget.json" --assert.budgetsFile="budget.json" --upload.reportFilenamePattern="lighthouse-results-mobile.%%EXTENSION%%" || echo "LHCI failed!"
 
-      - name: Format lighthouse score
+      - name: Format lighthouse score mobile
         id: format_lighthouse_score_mobile
         uses: actions/github-script@v5
         with:
           script: |
             const lighthouseReportFormatter = require('./.github/workflows/lh-report-formatter.js');
-
-            console.log('${{ steps.lighthouse_audit_mobile.outputs.manifest[0] }}');
-
             const comment = lighthouseReportFormatter.createComment("./lhci/lighthouse-results-mobile.json", "mobile");
             core.setOutput("comment", comment);
 
-      - name: Add Lighthouse stats as comment
+      - name: Add Lighthouse mobile stats as comment
         id: comment_to_pr_mobile
         uses: marocchino/sticky-pull-request-comment@v2.9.0
         with:
@@ -63,9 +60,28 @@ jobs:
           message: ${{ steps.format_lighthouse_score_mobile.outputs.comment }}
 
       - name: Lighthouse CI desktop audit
+        id: lighthouse_audit_desktop
         run: |
           npm install -g @lhci/cli@0.13.x
           lhci autorun --collect.url=${{ steps.waitFor200.outputs.url }} --collect.settings.budgetPath="budget-desktop.json" --assert.budgetsFile="budget-desktop.json" --collect.settings.preset=desktop --upload.reportFilenamePattern="lighthouse-results-desktop.%%EXTENSION%%" || echo "LHCI failed!"
+
+      - name: Format lighthouse score desktop
+        id: format_lighthouse_score_desktop
+        uses: actions/github-script@v5
+        with:
+          script: |
+            const lighthouseReportFormatter = require('./.github/workflows/lh-report-formatter.js');
+            const comment = lighthouseReportFormatter.createComment("./lhci/lighthouse-results-desktop.json", "desktop");
+            core.setOutput("comment", comment);
+
+      - name: Add Lighthouse desktop stats as comment
+        id: comment_to_pr_desktop
+        uses: marocchino/sticky-pull-request-comment@v2.9.0
+        with:
+          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          number: ${{ github.event.pull_request.number }}
+          header: lighthouse
+          message: ${{ steps.format_lighthouse_score_desktop.outputs.comment }}
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2

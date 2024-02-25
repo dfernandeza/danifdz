@@ -51,7 +51,7 @@ function createComment(reportFilename, type) {
     .map(([metric, time, eval]) => {
       return `| ${metric} | ${time} | ${eval} |`;
     })
-    .join()}
+    .join("")}
   `;
 
   return comment;
