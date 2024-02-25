@@ -48,9 +48,9 @@ jobs:
           script: |
             const lighthouseReportFormatter = require('./.github/workflows/lh-report-formatter.js');
 
-            console.log('${{ steps.lighthouse_audit_mobile.outputs.links.reportUrl }}');
+            console.log('${{ steps.lighthouse_audit_mobile.outputs.manifest[0] }}');
 
-            const comment = lighthouseReportFormatter.createComment("${{ steps.lighthouse_audit_mobile.outputs.manifest[0].jsonPath }}", "mobile");
+            const comment = lighthouseReportFormatter.createComment(".lhci/lighthouse-results-mobile.json", "mobile");
             core.setOutput("comment", comment);
 
       - name: Add Lighthouse stats as comment
