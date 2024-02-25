@@ -50,7 +50,7 @@ jobs:
 
             console.log('${{ steps.lighthouse_audit_mobile.outputs.manifest[0] }}');
 
-            const comment = lighthouseReportFormatter.createComment(".lhci/lighthouse-results-mobile.json", "mobile");
+            const comment = lighthouseReportFormatter.createComment("./lhci/lighthouse-results-mobile.json", "mobile");
             core.setOutput("comment", comment);
 
       - name: Add Lighthouse stats as comment
