@@ -48,6 +48,8 @@ jobs:
           script: |
             const lighthouseReportFormatter = require('./.github/workflows/lh-report-formatter.js');
 
+            console.log('${{ steps.lighthouse_audit_mobile.outputs.links.reportUrl }}');
+
             core.summary
               .addHeading('Performance report - mobile')
               .addTable([
@@ -56,7 +58,7 @@ jobs:
                   { data: "Time", header: true },
                   { data: "Eval", header: true }
                 ],
-                ...lighthouseReportFormatter.postSummary(${{ steps.lighthouse_audit_mobile.outputs.links.reportUrl }})
+                ...lighthouseReportFormatter.postSummary("./lhci/lighthouse-results-mobile.json")
               ])
               .write();
 
