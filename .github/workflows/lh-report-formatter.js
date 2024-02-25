@@ -43,7 +43,7 @@ function createComment(reportFilename, type) {
 
   const comment = `## Lighthouse report - ${type}
 
-  We ran Lighthouse against the changes, here's the summary:
+  We ran Lighthouse against your changes, here's the summary:
   
   | Metric | Time | Eval |
   | ------ | ---- | ---- |
@@ -51,7 +51,7 @@ function createComment(reportFilename, type) {
     .map(([metric, time, eval]) => {
       return `| ${metric} | ${time} | ${eval} |`;
     })
-    .join("")}
+    .join("\r\n")}
   `;
 
   return comment;
