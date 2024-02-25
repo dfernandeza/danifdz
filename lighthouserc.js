@@ -2,22 +2,19 @@ module.exports = {
   ci: {
     collect: {
       // url: ["https://semaphoreci.com"],
-      numberOfRuns: 2
+      numberOfRuns: 2,
+
+      settings: {
+        // accessibility, best-practices, performance, pwa, seo
+        onlyCategories: ["performance"],
+        maxWaitForLoad: 10_000
+      }
     },
-    // assert: {
-    //   preset: "lighthouse:no-pwa",
-    //   assertions: {
-    //     "csp-xss": "off",
-    //     "inspector-issues": "off",
-    //     "is-crawlable": "off",
-    //     "total-byte-weight": "off",
-    //     "total-byte-weight": "off",
-    //     "unused-javascript": "off"
-    //   }
-    // },
+    // assert: {},
     upload: {
       target: "filesystem",
       outputDir: "./lhci"
+      // reportFilenamePattern: "lighthouse-results-.%%EXTENSION%%"
     }
   }
 };

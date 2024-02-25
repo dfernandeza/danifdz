@@ -36,14 +36,34 @@ jobs:
           max_timeout: 120
 
       - name: Lighthouse CI mobile audit
+        id: lighthouse_audit_mobile
         run: |
           npm install -g @lhci/cli@0.13.x
-          lhci autorun --collect.url=${{ steps.waitFor200.outputs.url }} --collect.settings.budgetPath="budget.json" --assert.budgetsFile="budget.json" || echo "LHCI failed!"
+          lhci autorun --collect.url=${{ steps.waitFor200.outputs.url }} --collect.settings.budgetPath="budget.json" --assert.budgetsFile="budget.json" --upload.reportFilenamePattern="lighthouse-results-mobile.%%EXTENSION%%" || echo "LHCI failed!"
+
+      - name: Format lighthouse score
+        id: format_lighthouse_score_mobile
+        uses: actions/github-script@v5
+        with:
+          script: |
+            const lighthouseReportFormatter = require('./.github/workflows/lh-report-formatter.js');
+
+            core.summary
+              .addHeading('Performance report - mobile')
+              .addTable([
+                [
+                  { data: "Metric", header: true },
+                  { data: "Time", header: true },
+                  { data: "Eval", header: true }
+                ],
+                ...lighthouseReportFormatter.postSummary(${{ steps.lighthouse_audit_mobile.outputs.links.reportUrl }})
+              ])
+              .write();
 
       - name: Lighthouse CI desktop audit
         run: |
           npm install -g @lhci/cli@0.13.x
-          lhci autorun --collect.url=${{ steps.waitFor200.outputs.url }} --collect.settings.budgetPath="budget-desktop.json" --assert.budgetsFile="budget-desktop.json" --collect.settings.preset=desktop || echo "LHCI failed!"
+          lhci autorun --collect.url=${{ steps.waitFor200.outputs.url }} --collect.settings.budgetPath="budget-desktop.json" --assert.budgetsFile="budget-desktop.json" --collect.settings.preset=desktop --upload.reportFilenamePattern="lighthouse-results-desktop.%%EXTENSION%%" || echo "LHCI failed!"
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
