@@ -38,9 +38,9 @@ jobs:
       - name: Lighthouse CI mobile audit
         run: |
           npm install -g @lhci/cli@0.13.x
-          lhci autorun --collect.url=${{ steps.waitFor200.outputs.url }} --collect.settings.budgetPath="budget.json" || echo "LHCI failed!"
+          lhci autorun --collect.url=${{ steps.waitFor200.outputs.url }} --collect.settings.budgetPath="budget.json" --assert.budgetsFile="budget.json" || echo "LHCI failed!"
 
       - name: Lighthouse CI desktop audit
         run: |
           npm install -g @lhci/cli@0.13.x
-          lhci autorun --collect.url=${{ steps.waitFor200.outputs.url }} --collect.settings.budgetPath="budget-desktop.json" --collect.settings.preset=desktop || echo "LHCI failed!"
+          lhci autorun --collect.url=${{ steps.waitFor200.outputs.url }} --collect.settings.budgetPath="budget-desktop.json" --assert.budgetsFile="budget-desktop.json" --collect.settings.preset=desktop || echo "LHCI failed!"
