@@ -50,17 +50,17 @@ jobs:
 
             console.log('${{ steps.lighthouse_audit_mobile.outputs.links.reportUrl }}');
 
-            core.summary
-              .addHeading('Performance report - mobile')
-              .addTable([
-                [
-                  { data: "Metric", header: true },
-                  { data: "Time", header: true },
-                  { data: "Eval", header: true }
-                ],
-                ...lighthouseReportFormatter.postSummary("./lhci/lighthouse-results-mobile.json")
-              ])
-              .write();
+            const comment = lighthouseReportFormatter.createComment("${{ steps.lighthouse_audit_mobile.outputs.manifest[0].jsonPath }}", "mobile");
+            core.setOutput("comment", comment);
+
+      - name: Add Lighthouse stats as comment
+        id: comment_to_pr_mobile
+        uses: marocchino/sticky-pull-request-comment@v2.9.0
+        with:
+          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          number: ${{ github.event.pull_request.number }}
+          header: lighthouse
+          message: ${{ steps.format_lighthouse_score_mobile.outputs.comment }}
 
       - name: Lighthouse CI desktop audit
         run: |

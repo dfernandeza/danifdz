@@ -14,13 +14,13 @@ const metrics = [
 
 /**
  * Reads Lighthouse JSON report and posts the main metrics
- * to GitHub job summary
- * @param {string} filename The path to the JSON report file
- * @param {string|undefined} title Optional summary title to use
+ * to GitHub comments
+ * @param {string} reportFilename The path to the JSON report file
+ * @param {string|undefined} type Optional type mobile/desktop
  */
-function postSummary(filename, title) {
-  title = title || "Lighthouse Performance";
-  const results = JSON.parse(fs.readFileSync(filename, "utf8"));
+function createComment(reportFilename, type) {
+  const title = "Lighthouse Performance";
+  const results = JSON.parse(fs.readFileSync(reportFilename, "utf8"));
   const rows = [];
 
   metrics.forEach((key) => {
@@ -41,7 +41,20 @@ function postSummary(filename, title) {
 
   console.table(rows);
 
-  return rows;
+  const comment = `## Lighthouse report - ${type}
+
+  We ran Lighthouse against the changes, here's the summary:
+  
+  | Metric | Time | Eval |
+  | ------ | ---- | ---- |
+  ${rows
+    .map(([metric, time, eval]) => {
+      return `| ${metric} | ${time} | ${eval} |`;
+    })
+    .join()}
+  `;
+
+  return comment;
 }
 
-module.exports = { postSummary };
+module.exports = { createComment };
