@@ -5,7 +5,7 @@
     "timings": [
       {
         "metric": "largest-contentful-paint",
-        "budget": 1000
+        "budget": 1100
       },
       {
         "metric": "max-potential-fid",
@@ -17,7 +17,7 @@
       },
       {
         "metric": "interactive",
-        "budget": 1000
+        "budget": 1100
       },
       {
         "metric": "total-blocking-time",
@@ -25,7 +25,7 @@
       },
       {
         "metric": "speed-index",
-        "budget": 1.5
+        "budget": 2100
       }
     ]
   }

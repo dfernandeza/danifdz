@@ -2,7 +2,7 @@ module.exports = {
   ci: {
     collect: {
       // url: ["https://semaphoreci.com"],
-      numberOfRuns: 1
+      numberOfRuns: 2
     },
     // assert: {
     //   preset: "lighthouse:no-pwa",
@@ -17,7 +17,7 @@ module.exports = {
     // },
     upload: {
       target: "filesystem",
-      outputDir: "reports"
+      outputDir: "./lhci"
     }
   }
 };
