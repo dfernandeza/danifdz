@@ -1,0 +1,32 @@
+[
+  {
+    "path": "/*",
+    "resourceSizes": [],
+    "timings": [
+      {
+        "metric": "largest-contentful-paint",
+        "budget": 800
+      },
+      {
+        "metric": "max-potential-fid",
+        "budget": 100
+      },
+      {
+        "metric": "cumulative-layout-shift",
+        "budget": 0.1
+      },
+      {
+        "metric": "interactive",
+        "budget": 500
+      },
+      {
+        "metric": "total-blocking-time",
+        "budget": 100
+      },
+      {
+        "metric": "speed-index",
+        "budget": 0.5
+      }
+    ]
+  }
+]

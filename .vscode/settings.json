@@ -1,6 +1,8 @@
 {
   "cSpell.words": [
-    "frontmatter"
+    "autorun",
+    "frontmatter",
+    "lhci"
   ],
   "editor.formatOnSave": true,
   "eslint.format.enable": true

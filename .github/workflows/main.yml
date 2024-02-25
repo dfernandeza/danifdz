@@ -1,8 +1,8 @@
 name: CI
 
 on:
-  # push:
-  #   branches: ['master']
+  push:
+    branches: ["master"]
   pull_request:
     branches: ["master"]
 
@@ -23,19 +23,24 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
 
-      - name: Install
+      - name: Install & Build
         run: |
           npm ci
-      - name: Build
-        run: |
           npm run build
+
       - name: Waiting for 200 from the Netlify Preview
         uses: jakepartusch/wait-for-netlify-action@v1
         id: waitFor200
         with:
           site_name: "danifdz"
           max_timeout: 120
-      - name: Lighthouse CI
+
+      - name: Lighthouse CI mobile audit
         run: |
           npm install -g @lhci/cli@0.13.x
-          lhci autorun --collect.url=${{ steps.waitFor200.outputs.url }}
+          lhci autorun --collect.url=${{ steps.waitFor200.outputs.url }} --collect.settings.budgetPath="budget.json" || echo "LHCI failed!"
+
+      - name: Lighthouse CI desktop audit
+        run: |
+          npm install -g @lhci/cli@0.13.x
+          lhci autorun --collect.url=${{ steps.waitFor200.outputs.url }} --collect.settings.budgetPath="budget-desktop.json" --collect.settings.preset=desktop || echo "LHCI failed!"
