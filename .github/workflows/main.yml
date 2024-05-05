@@ -1,5 +1,8 @@
 name: CI
 
+permissions:
+  pull-requests: write
+
 on:
   push:
     branches: ["master"]
@@ -7,7 +10,7 @@ on:
     branches: ["master"]
 
 jobs:
-  build:
+  build-n-lighthouse-audit:
     runs-on: ubuntu-latest
 
     strategy:
@@ -35,6 +38,7 @@ jobs:
           site_name: "danifdz"
           max_timeout: 120
 
+      # MOBILE AUDIT
       - name: Lighthouse CI mobile audit
         id: lighthouse_audit_mobile
         run: |
@@ -59,6 +63,7 @@ jobs:
           header: lighthouse-mobile
           message: ${{ steps.format_lighthouse_score_mobile.outputs.comment }}
 
+      # DESKTOP AUDIT
       - name: Lighthouse CI desktop audit
         id: lighthouse_audit_desktop
         run: |
