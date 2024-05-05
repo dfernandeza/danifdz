@@ -7,9 +7,9 @@ function evalEmojiUnit(score) {
     return "🟢";
   }
   if (score >= 0.5) {
-    return "🟧";
+    return "🟠";
   }
-  return "🔺";
+  return "🔴";
 }
 
 /**
