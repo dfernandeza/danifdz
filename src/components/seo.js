@@ -32,7 +32,9 @@ function SearchEngineOptimization({
   );
 
   const metaDescription = description || site.siteMetadata.description;
-  const imageSrc = `https://www.danifdz.dev${thumbnail?.childImageSharp.fluid.src}`;
+  const imageSrc = thumbnail
+    ? `https://www.danifdz.dev${thumbnail?.childImageSharp.fluid.src}`
+    : "";
 
   return (
     <Helmet
