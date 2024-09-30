@@ -50,6 +50,8 @@ export default function IndexPage({ data }) {
     posts.push(post);
   }
 
+  const showPosts = false;
+
   return (
     <>
       <Toggle />
@@ -102,17 +104,25 @@ export default function IndexPage({ data }) {
             </div>
 
             <p>
-              I've been doing software engineering for 10+ years, during which I
-              have gained valuable knowledge and experience developing and
-              architecting web applications for small, medium and large sized
-              companies. I really enjoy creating high-quality web applications
-              using tools like React and NodeJS but I will be happy to jump and
-              learn new technologies at any moment.
+              I've been in the software engineering world for 15+ years, working
+              with everything from small startups to big-name industry players
+              like New Relic and Twilio. I spent some of those years traveling,
+              diving into different tech scenes and working for incredible
+              companies. I also had the chance to lead and mentor some
+              super-talented engineering teams.
             </p>
             <p>
-              I also enjoy and have experience leading engineering teams and
-              working with stakeholders to build successful software products.
+              I really enjoy creating web apps that not only look great but also
+              hit business goals and deliver what users need. I enjoy solving
+              tricky problems with creative solutions.
             </p>
+            <p>
+              I've worked with people all around the globe, across different
+              time zones and cultures. Remote work has sharpened my
+              communication skills and made me better at being a strong team
+              player, no matter where I'm based.
+            </p>
+            <p>Let's connect!</p>
             {/* <p>
               Currently engineering at{" "}
               <a
@@ -127,84 +137,88 @@ export default function IndexPage({ data }) {
           </div>
 
           <div className="featured-list">
-            {!!posts.length && (
+            {!!posts.length && showPosts && (
               <h2 className="featured-list__title">Learning in public</h2>
             )}
 
-            {posts.map((post, index) => {
-              return (
-                <article
-                  key={`${post.id}-${index}`}
-                  className="featured-list__item"
-                >
-                  <header className="featured-list__itemHeader">
-                    <h3>
-                      <Link className="featured-list__item-link" to={post.path}>
-                        <span className="featured-list__item-link__text">
-                          {post.title}
-                        </span>
-                        <span className="featured-list__item-link__arrow">
-                          {" "}
-                          →
-                        </span>
-                      </Link>
-                    </h3>
-                    <small className="featured-list__item-meta">
-                      {/* {post.date} •{" "} */}
-                      {post?.series ? (
-                        <>
-                          {" "}
-                          <span roles="img" aria-label="notebook">
-                            📒
-                          </span>{" "}
-                          {post.series.count} blog posts
-                        </>
-                      ) : (
-                        <>
-                          <span role="img" aria-label="hourglass">
-                            ⌛
+            {showPosts &&
+              posts.map((post, index) => {
+                return (
+                  <article
+                    key={`${post.id}-${index}`}
+                    className="featured-list__item"
+                  >
+                    <header className="featured-list__itemHeader">
+                      <h3>
+                        <Link
+                          className="featured-list__item-link"
+                          to={post.path}
+                        >
+                          <span className="featured-list__item-link__text">
+                            {post.title}
                           </span>
-                          {post.timeToRead} min read
-                        </>
-                      )}
-                    </small>
-                  </header>
-                  <p className="featured-list__item-description">
-                    {post.excerpt}
-                    <Tags tags={post.tags} />
-                  </p>
-                  {post?.series ? (
-                    <ul className="series-list">
-                      {post.series.posts.map((s) => {
-                        return (
-                          <li className="series-list__item">
-                            <Link
-                              className="series-list__item-link"
-                              to={s.path}
-                            >
-                              <Card
-                                title={
-                                  <>
-                                    <h3>{s.title} </h3>
-                                    <small>
-                                      <span role="img" aria-label="hourglass">
-                                        ⌛
-                                      </span>
-                                      {s.timeToRead} min read
-                                    </small>
-                                  </>
-                                }
-                                text={s.truncatedExcerpt}
-                              />
-                            </Link>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  ) : null}
-                </article>
-              );
-            })}
+                          <span className="featured-list__item-link__arrow">
+                            {" "}
+                            →
+                          </span>
+                        </Link>
+                      </h3>
+                      <small className="featured-list__item-meta">
+                        {/* {post.date} •{" "} */}
+                        {post?.series ? (
+                          <>
+                            {" "}
+                            <span roles="img" aria-label="notebook">
+                              📒
+                            </span>{" "}
+                            {post.series.count} blog posts
+                          </>
+                        ) : (
+                          <>
+                            <span role="img" aria-label="hourglass">
+                              ⌛
+                            </span>
+                            {post.timeToRead} min read
+                          </>
+                        )}
+                      </small>
+                    </header>
+                    <p className="featured-list__item-description">
+                      {post.excerpt}
+                      <Tags tags={post.tags} />
+                    </p>
+                    {post?.series ? (
+                      <ul className="series-list">
+                        {post.series.posts.map((s) => {
+                          return (
+                            <li className="series-list__item">
+                              <Link
+                                className="series-list__item-link"
+                                to={s.path}
+                              >
+                                <Card
+                                  title={
+                                    <>
+                                      <h3>{s.title} </h3>
+                                      <small>
+                                        <span role="img" aria-label="hourglass">
+                                          ⌛
+                                        </span>
+                                        {s.timeToRead} min read
+                                      </small>
+                                    </>
+                                  }
+                                  text={s.truncatedExcerpt}
+                                />
+                              </Link>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    ) : null}
+                  </article>
+                );
+              })}
           </div>
         </section>
       </Layout>

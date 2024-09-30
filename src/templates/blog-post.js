@@ -52,13 +52,13 @@ export const query = graphql`
       frontmatter {
         title
         excerpt
-        thumbnail {
-          childImageSharp {
-            fluid(maxWidth: 300) {
-              src
-            }
-          }
-        }
+        # thumbnail {
+        #   childImageSharp {
+        #     fluid(maxWidth: 300) {
+        #       src
+        #     }
+        #   }
+        # }
       }
     }
   }
