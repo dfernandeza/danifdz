@@ -41,17 +41,7 @@ export default function Layout({ children }) {
           LinkedIn
         </OutboundLink>
 
-        <small className="footer__text">
-          © {new Date().getFullYear()}, Built with{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            className="footer__text-link"
-            href="https://www.gatsbyjs.org"
-          >
-            Gatsby
-          </a>
-        </small>
+        <small className="footer__text">© {new Date().getFullYear()}</small>
       </footer>
     </Fragment>
   );
